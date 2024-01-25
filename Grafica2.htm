@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generatore di Div</title>
+  <style>
+    .generatedDiv {
+      width: 10px;
+      height: 10px;
+      border: 1px solid black;
+      margin: 5px; 
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <label for="numDiv">Inserisci il numero di div:</label>
+  <input type="number" id="numDiv" min="1" value="1">
+  <button onclick="generaDiv()">Genera Div</button>
+
+  <script>
+    function generaDiv() {
+     
+      var numDiv = document.getElementById("numDiv").value;
+
+    
+      var container = document.body;
+
+   
+      for (var i = 0; i < numDiv; i++) {
+       
+        var nuovoDiv = document.createElement("div");
+        nuovoDiv.className = "generatedDiv";
+
+       
+        var colore = generaColoreRandom();
+        nuovoDiv.style.backgroundColor = colore;
+
+        
+        container.appendChild(nuovoDiv);
+      }
+    }
+
+    function generaColoreRandom() {
+      
+      return '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
+  </script>
+</body>
+</html>
