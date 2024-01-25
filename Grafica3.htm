@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 14px;
+      height: 14px;
+      border: 1px solid black;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  <table id="quadratiTable"></table>
+
+  <script>
+    var table = document.getElementById("quadratiTable");
+
+    for (var i = 1; i <= 100; i++) {
+      // Crea una nuova riga ogni 10 numeri
+      if (i % 10 === 1) {
+        var row = table.insertRow();
+      }
+
+      // Crea una nuova cella
+      var cell = row.insertCell();
+
+      // Applica stili in base alla parità del numero
+      if (i % 2 === 0) {
+        cell.style.backgroundColor = "#D3D3D3"; // Grigio chiaro
+      } else {
+        cell.style.backgroundColor = "#808080"; // Grigio scuro
+      }
+    }
+  </script>
+</body>
+</html>
