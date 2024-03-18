@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Bar v1</h1>
+
+  <div>
+    <button onclick="MostraMenuDrink()">Menu</button>
+    <button onclick="contaDrink()">Numero drink presenti nel menu:</button>
+    <button onclick="aggiungiDrink()">Aggiungi Drink al Menu</button>
+    <button onclick="eliminaDrink()">Delete Drink</button>
+    <button onclick="acquistaDrink()">Buy Drink</button>
+    <p id="menu"></p>
+  </div>
+
+  <script>
+    let drinks = [
+      "Mojito", "Martini", "Piña Colada", "Margarita", "Cosmopolitan", "Old Fashioned", "Negroni", "Bloody Mary", "Whiskey Sour", "Sangria", "Moscow Mule", "Long Island Iced Tea", "Mimosa", "Daiquiri", "Caipirinha", "Gin and Tonic", "Tequila Sunrise", "White Russian", "Manhattan", "Irish Coffee"
+    ];
+
+    let orders = []; // Array degli ordini
+
+    // Inizializzazione del menu
+    document.getElementById("menu").innerHTML = drinks.join("<br>");
+
+    // Funzione per contare i drink presenti nel menu
+    function contaDrink() {
+      let numeroDrink = drinks.length;
+      document.getElementById("menu").innerHTML = "Numero di drink presenti nel menu: " + numeroDrink;
+    }
+
+    // Funzione per mostrare il menu dei drink
+    function MostraMenuDrink() {
+      document.getElementById("menu").innerHTML = drinks.join("<br>");
+    }
+
+    // Funzione per aggiungere un nuovo drink al menu
+    function aggiungiDrink() {
+      let nuovoElemento = prompt("Inserisci il nome del drink");
+      if (nuovoElemento !== null && nuovoElemento !== "") {
+        drinks.push(nuovoElemento);
+        document.getElementById("menu").innerHTML = drinks.join("<br>");
+      } else {
+        alert("Inserisci un nome valido per il drink.");
+      }
+    }
+
+    // Funzione per eliminare l'ultimo drink dal menu
+    function eliminaDrink() {
+      drinks.pop();
+      document.getElementById("menu").innerHTML = drinks.join("<br>");
+    }
+
+    // Funzione per acquistare i drink e stampare la lista ordinata
+    function acquistaDrink() {
+      orders = [3, 1, 4]; // Ordini ricevuti tramite array di numeri (questo è solo un esempio)
+      orders.sort(); // Ordina gli ordini
+      let listaOrdini = orders.map(order => drinks[order - 1]);
+      document.getElementById("menu").innerHTML = listaOrdini.join("<br>");
+    }
+  </script>
+</body>
+
+</html>
+
